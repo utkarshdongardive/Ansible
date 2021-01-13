@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  user: ansible
+  user: root
   tasks:
     - name: Install apache packages
       yum:
