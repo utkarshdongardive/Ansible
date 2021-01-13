@@ -2,7 +2,7 @@
 # reboot.yml
 
 - hosts: all
-  users: root
+  user: root
   tasks:
     - name: reboot host
       shell: /sbin/shutdown -r now
