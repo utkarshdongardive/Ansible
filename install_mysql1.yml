@@ -3,7 +3,7 @@
   user: root
   become: yes
   vars_files: 
-    - vars/main.yml
+    - var/lib/awx/vars/main.yml
   roles: 
     - { role: geerlingguy.mysql }
   pre_tasks:
