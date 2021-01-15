@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   vars_files: 
-    - var/lib/awx/vars/main.yml
+    - /var/lib/awx/vars/main.yml
   roles: 
     - { role: geerlingguy.mysql }
   pre_tasks:
