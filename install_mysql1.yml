@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  user: root
   become: yes
   vars_files: 
     - var/lib/awx/vars/main.yml
