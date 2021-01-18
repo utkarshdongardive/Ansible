@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  user: Administrator
 # gather_facts: false
   tasks:
     - name: Add User
