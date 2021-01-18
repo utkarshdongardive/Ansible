@@ -1,0 +1,61 @@
+---
+- hosts: all
+  user: root
+  # remote_user: root
+  # become: yes
+  # become_method: sudo
+  # gather_facts: no
+  # connection: ssh
+  tasks:
+   - name: Add group "Privileged Group" to remote server
+     group:
+       name: privileged_group
+       gid: 2000
+       state: present
+
+   - name: Add group "Unprivileged Group" to remote server
+     group:
+       name: unprivileged_group
+       gid: 3000
+       state: present
+
+   - name: Add user "Privileged User with Password" to remote server
+     user:
+       name: priv_user_wp
+       comment: "Privileged User with Password"
+       uid: 2000
+       group: privileged_group
+       shell: /bin/bash
+       password: 'redhatpup'
+       expires: 1525198731  
+       
+   - name: Add user "Privileged User without Password" to remote server
+     user:
+       name: priv_user_wop
+       comment: "Privileged User without Password"
+       uid: 2001
+       group: privileged_group
+       shell: /bin/bash
+       
+   - name: Add user "Unprivileged User with Password" to remote server
+     user:
+       name: unpriv_user_wp
+       comment: "Unprivileged User with Password"
+       uid: 3000
+       group: unprivileged_group
+       shell: /bin/bash
+       password: 'redhatupup'
+       expires: 1525198731  
+       
+   - name: Add user "Unprivileged User without Password" to remote server
+     user:
+       name: unpriv_user_wop
+       comment: "Unprivileged User without Password"
+       uid: 3001
+       group: unprivileged_group
+       shell: /bin/bash
+       
+   - name: Force user "unpriv_user_wp" to change the password
+     command: 
+         chage -d 0 unpriv_user_wp
+...
