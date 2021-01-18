@@ -1,0 +1,9 @@
+---
+- hosts: all
+# gather_facts: false
+  tasks:
+    - name: Add User
+      win_user:
+        name: Guest_User
+        password: "windows"
+        state: present
