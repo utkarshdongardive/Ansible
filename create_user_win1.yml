@@ -3,33 +3,39 @@
   user: Administrator   
   tasks:
     - name: Create local group "Privileged Group"
-      win_group:
+      ansible.windows.win_group:
         name: privileged_group
         description: Privileged Group
+        state: present
         
     - name: Create local group "Unprivileged Group"
-      win_group:
+      ansible.windows.win_group:
         name: unprivileged_group
         description: Unprivileged Group
+        state: present
         
     - name: Add user "Privileged User with Password"
-      win_user:
+      ansible.windows.win_user:
         name: priv_user_wp
         password: windows
         groups: privileged_group
+        state: present
         
     - name: Add user "Privileged User without Password"
-      win_user:
+      ansible.windows.win_user:
         name: priv_user_wop
         groups: privileged_group
+        state: present
         
     - name: Add user "Unprivileged User with Password"
-      win_user:
+      ansible.windows.win_user:
         name: unpriv_user_wp
         password: windows
         groups: unprivileged_group
+        state: present
         
     - name: Add user "Unprivileged User without Password"
-      win_user:
+      ansible.windows.win_user:
         name: unpriv_user_wop
         groups: unprivileged_group
+        state: present
