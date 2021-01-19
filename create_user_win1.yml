@@ -3,7 +3,7 @@
   user: Administrator   
   tasks:
     - name: Create local group "Privileged Group"
-      ansible.windows.win_group:
+      var.lib.awx.ansible.windows.win_group:
         name: privileged_group
         description: Privileged Group
         state: present
