@@ -20,7 +20,7 @@
 #     ansible.windows.win_user:
       win_user:
         name: priv_user_wp
-        password: windows
+        password: Windows@123
         groups: privileged_group
         state: present
         
@@ -35,7 +35,7 @@
 #     ansible.windows.win_user:
       win_user:
         name: unpriv_user_wp
-        password: windows
+        password: Windows@12345
         groups: unprivileged_group
         state: present
         
