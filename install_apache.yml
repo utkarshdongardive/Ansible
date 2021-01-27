@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  user: root
+# user: root
   tasks:
     - name: Install apache packages
       yum:
