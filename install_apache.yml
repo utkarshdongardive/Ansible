@@ -15,6 +15,11 @@
         service: http
         permanent: true
         state: enabled
+    - name: Open port 443 for https access
+      firewalld:
+        service: https
+        permanent: true
+        state: enabled
     - name: Restart the firewalld service to load in the firewall changes
       service:
         name: firewalld
